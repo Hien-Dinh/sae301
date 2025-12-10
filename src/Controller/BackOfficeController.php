@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class BackOfficeController extends AbstractController
 {
-    #[Route('/back', name: 'app_back_office')]
+    #[Route('/backoffice', name: 'app_back_office')]
     public function index(): Response
     {
         // Données simulées pour les réservations
@@ -35,7 +35,7 @@ final class BackOfficeController extends AbstractController
                 'statut' => 'Confirmée'
             ],
             [
-                'client' => 'Claire Petit',
+                'client' => 'Claire Petite',
                 'service' => 'Réparation fuite WC',
                 'creneau' => '2025-12-13T13:00:00',
                 'duree' => '1h15',
