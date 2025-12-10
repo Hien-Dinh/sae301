@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Back Office - Gestion des Réservations{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+        <h1>Bienvenue dans le Back-Office!</h1>
+
+        <p>Gérez vos réservations et créneaux horaires ici.</p>
+
+        <h2>Tableau des Réservations</h2>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Client</th>
+                <th>Service</th>
+                <th>Créneau</th>
+                <th>Durée</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.client }}</td>
+                    <td>{{ reservation.service }}</td>
+                    <td>{{ reservation.creneau }}</td>
+                    <td>{{ reservation.duree }}</td>
+                    <td>{{ reservation.statut }}</td>
+                    <td>
+                        <button class="btn btn-info">Voir</button>
+                        <button class="btn btn-warning">Modifier</button>
+                        <button class="btn btn-danger">Annuler</button>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucune réservation pour le moment.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Créneaux Disponibles</h2>
+        <p>Voici les créneaux disponibles pour les prochains jours :</p>
+
+        <ul class="slots-list">
+            {% for date, slots in availableSlots %}
+                <li>
+                    <strong>{{ date }}</strong>
+                    <ul>
+                        {% for slot in slots %}
+                            <li>{{ slot }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
