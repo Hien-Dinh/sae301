@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de la commande{% endblock %}
+
+{% block body %}
+    <h1>Votre demande d’intervention a bien été enregistrée</h1>
+
+    <p>Voici un récapitulatif de votre demande :</p>
+
+    <ul>
+        <li><strong>Nom :</strong> {{ form_data.first_name }} {{ form_data.last_name }}</li>
+        <li><strong>Email :</strong> {{ form_data.email }}</li>
+        <li><strong>Service demandé :</strong> {{ form_data.service_type }}</li>
+        <li><strong>Adresse de l’intervention :</strong> {{ form_data.address }}</li>
+        <li><strong>Date souhaitée :</strong> {{ form_data.date|date('d/m/Y') }}</li>
+        <li><strong>Créneau horaire :</strong> {{ form_data.time_slot }}</li>
+        <li><strong>Message :</strong> {{ form_data.message }}</li>
+        <li><strong>Urgence :</strong> {{ form_data.emergency ? 'Oui' : 'Non' }}</li>
+    </ul>
+
+    <div class="confirmation-footer">
+        <p>Une confirmation de votre demande vous a été envoyée par e-mail.</p>
+        <p>Vous pouvez revenir à la page d'accueil ou réserver à nouveau si nécessaire.</p>
+        <a href="{{ path('app_commande') }}">Retourner à la page de commande</a>
+    </div>
+{% endblock %}
