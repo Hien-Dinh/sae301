@@ -2,102 +2,77 @@
 
 namespace App\Form;
 
+use App\Entity\Commande;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CommandeType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $services = $options['services'];
-
         $builder
-            // Bloc 1 : Vos informations
-            ->add('first_name', TextType::class, [
-                'label' => 'Nom *',
-                'required' => true,
-            ])
-            ->add('last_name', TextType::class, [
-                'label' => 'Prénom *',
-                'required' => true,
-            ])
-            ->add('email', EmailType::class, [
-                'label' => 'Adresse e-mail *',
-                'required' => true,
-            ])
-            ->add('phone', TelType::class, [
-                'label' => 'Numéro de téléphone (facultatif)',
-                'required' => false,
-            ])
+            ->add('prenom', TextType::class, ['label' => '* Prénom'])
+            ->add('nom', TextType::class, ['label' => '* Nom'])
+            ->add('email', EmailType::class, ['label' => '* Adresse e-mail'])
+            ->add('telephone', TextType::class, ['label' => 'Téléphone'])
 
-            // Bloc 2 : Intervention souhaitée
-            ->add('service_type', ChoiceType::class, [
-                'label' => 'Type de service *',
-                'choices' => $services,
-                'required' => true,
-            ])
-            ->add('address', TextAreaType::class, [
-                'label' => 'Adresse complète de l’intervention *',
-                'required' => true,
-            ])
-            ->add('date', DateType::class, [
-                'label' => 'Date souhaitée *',
-                'required' => true,
-                'widget' => 'single_text',
-                'attr' => [
-                    'min' => (new \DateTime())->format('d-m-Y'),
-                ]
-            ])
-            ->add('time_slot', ChoiceType::class, [
-                'label' => 'Créneau horaire *',
+            ->add('typeService', ChoiceType::class, [
+                'label' => '* Type de service',
                 'choices' => [
-                    '9h-12h' => '09:00-12:00',
-                    '14h-18h' => '14:00-18:00',
+                    'Débouchage' => 'débouchage',
+                    'Fuite d\'eau' => 'fuite',
+                    'Installation lavabo' => 'lavabo',
                 ],
-                'required' => true,
+            ])
+            ->add('adresse', TextType::class, ['label' => '* Adresse de l’intervention'])
+            ->add('dateSouhaitee', DateType::class, [
+                'label' => '* Date souhaitée',
+                'widget' => 'single_text'
+            ])
+            ->add('creneauHoraire', ChoiceType::class, [
+                'label' => '* Créneau horaire',
+                'choices' => [
+                    '08h00 - 10h00' => '08:00-10:00',
+                    '10h00 - 12h00' => '10:00-12:00',
+                    '14h00 - 16h00' => '14:00-16:00',
+                    '16h00 - 18h00' => '16:00-18:00',
+                ],
             ])
 
-            // Bloc 3 : Détails complémentaires
-            ->add('message', TextAreaType::class, [
-                'label' => 'Message ou précisions sur le problème',
+            ->add('message', TextareaType::class, [
+                'label' => 'Message (optionnel)',
                 'required' => false,
             ])
             ->add('photo', FileType::class, [
-                'label' => 'Ajouter une photo (facultatif)',
+                'label' => 'Photo (optionnel)',
                 'required' => false,
-                'mapped' => false,
-                'attr' => ['accept' => 'image/*'],
+                'mapped' => false, // important !
             ])
-            ->add('emergency', CheckboxType::class, [
-                'label' => 'Urgence',
-                'required' => false,
-            ])
-
-            // Bloc 4 : Validation
-            ->add('terms', CheckboxType::class, [
-                'label' => 'Je certifie que les informations fournies sont correctes *',
-                'required' => true,
-            ])
-            ->add('contact_permission', CheckboxType::class, [
-                'label' => 'J’accepte d’être contacté pour confirmer ou ajuster le créneau (facultatif)',
+            ->add('urgence', CheckboxType::class, [
+                'label' => '* Intervention urgente ?',
                 'required' => false,
             ])
-        ;
+            ->add('accepteConditions', CheckboxType::class, [
+                'label' => '* J’accepte les conditions générales',
+            ])
+            ->add('autorisationContact', CheckboxType::class, [
+                'label' => 'Autorisez-vous le contact? (optionnel)',
+                'required' => false,
+            ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'services' => []
+            'data_class' => Commande::class,
         ]);
     }
 }
