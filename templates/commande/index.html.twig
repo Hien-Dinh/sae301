@@ -13,7 +13,7 @@
     <div class="form-group">
         {{ form_row(form.prenom) }}
         {{ form_row(form.nom) }}
-       {{ form_row(form.email) }}
+        {{ form_row(form.email) }}
         {{ form_row(form.telephone) }}
     </div>
 
@@ -41,4 +41,34 @@
     <button type="submit" class="btn btn-primary">Confirmer la demande d’intervention</button>
 
     {{ form_end(form) }}
+
+    <script>
+        const creneauxParService = {{ creneaux_par_service|json_encode|raw }};
+
+        const serviceSelect = document.getElementById('commande_typeService');
+        const creneauSelect = document.getElementById('commande_creneauHoraire');
+
+        if (serviceSelect && creneauSelect) {
+            serviceSelect.addEventListener('change', function () {
+                const selectedService = this.value;
+
+                creneauSelect.innerHTML = '';
+
+                if (creneauxParService[selectedService]) {
+                    creneauxParService[selectedService].forEach(libelle => {
+                        const option = document.createElement('option');
+                        option.value = libelle;
+                        option.textContent = libelle;
+                        creneauSelect.appendChild(option);
+                    });
+                } else {
+                    const option = document.createElement('option');
+                    option.textContent = 'Aucun créneau disponible';
+                    option.disabled = true;
+                    option.selected = true;
+                    creneauSelect.appendChild(option);
+                }
+            });
+        }
+    </script>
 {% endblock %}

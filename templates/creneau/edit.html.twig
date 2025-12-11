@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Créneau{% endblock %}
+
+{% block body %}
+    <h1>Modifier le créneau : {{ creneau.libelle }}</h1>
+
+    {{ include('creneau/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('app_creneau_index') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
+
+    {{ include('creneau/_delete_form.html.twig') }}
+
+{% endblock %}

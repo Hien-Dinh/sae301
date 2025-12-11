@@ -25,15 +25,15 @@
             <tbody>
             {% for reservation in reservations %}
                 <tr>
-                    <td>{{ reservation.client }}</td>
-                    <td>{{ reservation.service }}</td>
-                    <td>{{ reservation.creneau }}</td>
-                    <td>{{ reservation.duree }}</td>
-                    <td>{{ reservation.statut }}</td>
+                    <td>{{ reservation.prenom }} {{ reservation.nom }}</td>
+                    <td>{{ reservation.typeService }}</td>
+                    <td>{{ reservation.creneauHoraire }}</td>
+                    <td>{{ reservation.dateSouhaitee|date('d/m/Y') }}</td>
+                    <td>{{ reservation.urgence ? 'Urgent' : 'Normal' }}</td>
                     <td>
-                        <button class="btn btn-info">Voir</button>
-                        <button class="btn btn-warning">Modifier</button>
-                        <button class="btn btn-danger">Annuler</button>
+                        <a href="{{ path('app_backoffice_show', {'id': reservation.id}) }}" class="btn btn-info">Voir</a>
+                        <a href="{{ path('app_backoffice_edit', {'id': reservation.id}) }}" class="btn btn-warning">Modifier</a>
+                        <form action="{{ path('app_backoffice_delete', {'id': reservation.id}) }}" method="POST" style="display:inline;"><input type="hidden" name="_token" value="{{ csrf_token('delete_commande_' ~ reservation.id) }}"><button class="btn btn-danger" onclick="return confirm('Supprimer cette commande? Cette action est définitive.');">Annuler</button></form>
                     </td>
                 </tr>
             {% else %}
@@ -44,20 +44,10 @@
             </tbody>
         </table>
 
-        <h2>Créneaux Disponibles</h2>
-        <p>Voici les créneaux disponibles pour les prochains jours :</p>
-
-        <ul class="slots-list">
-            {% for date, slots in availableSlots %}
-                <li>
-                    <strong>{{ date }}</strong>
-                    <ul>
-                        {% for slot in slots %}
-                            <li>{{ slot }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% endfor %}
+        <h2>Gestion</h2>
+        <ul>
+            <li><a href="{{ path('app_service_index') }}">Gérer les services</a></li>
+            <li><a href="{{ path('app_creneau_index') }}">Gérer les créneaux</a></li>
         </ul>
-    </div>
-{% endblock %}
+
+        {% endblock %}
