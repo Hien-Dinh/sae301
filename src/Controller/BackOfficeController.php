@@ -35,7 +35,7 @@ final class BackOfficeController extends AbstractController
                 'statut' => 'Confirmée'
             ],
             [
-                'client' => 'Claire Petit',
+                'client' => 'Claire Petite',
                 'service' => 'Réparation fuite WC',
                 'creneau' => '2025-12-13T13:00:00',
                 'duree' => '1h15',

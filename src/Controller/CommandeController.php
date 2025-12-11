@@ -7,56 +7,60 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\CommandeType;
-use Symfony\Component\HttpFoundation\RequestStack;
+use App\Entity\Commande;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 final class CommandeController extends AbstractController
 {
-    private $requestStack;
-    public function __construct(RequestStack $requestStack)
-    {
-        $this->requestStack = $requestStack;
-    }
-
     #[Route('/commande', name: 'app_commande')]
-    public function index(Request $request): Response
+    public function index(Request $request, EntityManagerInterface $em): Response
     {
-        $services = [
-            'Fuite' => 'fuite',
-            'Dépannage' => 'depannage',
-            'Installation' => 'installation',
-            'Raccordement' => 'raccordement',
-        ];
+        $commande = new Commande();
 
-        $form = $this->createForm(CommandeType::class, null, [
-            'services' => $services
-        ]);
-
+        $form = $this->createForm(CommandeType::class, $commande);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $formData = $form->getData();
-            $session = $this->requestStack->getCurrentRequest()->getSession();
-            $session->set('form_data', $formData);
-            return $this->redirectToRoute('app_commande_confirmation');
+
+            // On gère la photo (si uploadée)
+            $photoFile = $form->get('photo')->getData();
+            if ($photoFile) {
+                $newFilename = uniqid().'_'.$photoFile->getClientOriginalName();
+
+                try {
+                    $photoFile->move(
+                        $this->getParameter('photos_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) { }
+
+                $commande->setPhoto($newFilename);
+            }
+
+            // Ajout de la date de création
+            $commande->setDateCreation(new \DateTime());
+
+            // Sauvegarde dans la base de données
+            $em->persist($commande);
+            $em->flush();
+
+            // Redirection vers page confirmation
+            return $this->redirectToRoute('confirmation_commande', [
+                'id' => $commande->getId()
+            ]);
         }
 
         return $this->render('commande/index.html.twig', [
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
-    #[Route('/commande/confirmation', name: 'app_commande_confirmation')]
-    public function confirmation(): Response
+    #[Route('/commande/confirmation/{id}', name: 'confirmation_commande')]
+    public function confirmation(Commande $commande): Response
     {
-        $session = $this->requestStack->getCurrentRequest()->getSession();
-        $formData = $session->get('form_data');
-
-        if (!$formData) {
-            return $this->redirectToRoute('app_commande');
-        }
-
         return $this->render('commande/confirmation.html.twig', [
-            'form_data' => $formData,
+            'form_data' => $commande
         ]);
     }
 }

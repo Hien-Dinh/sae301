@@ -8,14 +8,16 @@
     <p>Voici un récapitulatif de votre demande :</p>
 
     <ul>
-        <li><strong>Nom :</strong> {{ form_data.first_name }} {{ form_data.last_name }}</li>
+        <li><strong>Nom :</strong> {{ form_data.prenom }} {{ form_data.nom }}</li>
         <li><strong>Email :</strong> {{ form_data.email }}</li>
-        <li><strong>Service demandé :</strong> {{ form_data.service_type }}</li>
-        <li><strong>Adresse de l’intervention :</strong> {{ form_data.address }}</li>
-        <li><strong>Date souhaitée :</strong> {{ form_data.date|date('d/m/Y') }}</li>
-        <li><strong>Créneau horaire :</strong> {{ form_data.time_slot }}</li>
+        <li><strong>Service demandé :</strong> {{ form_data.typeService }}</li>
+        <li><strong>Adresse de l’intervention :</strong> {{ form_data.adresse }}</li>
+        <li><strong>Date souhaitée :</strong> {{ form_data.dateSouhaitee|date('d/m/Y') }}</li>
+        <li><strong>Créneau horaire :</strong> {{ form_data.creneauHoraire }}</li>
         <li><strong>Message :</strong> {{ form_data.message }}</li>
-        <li><strong>Urgence :</strong> {{ form_data.emergency ? 'Oui' : 'Non' }}</li>
+        <li><strong>Urgence :</strong> {{ form_data.urgence ? 'Oui' : 'Non' }}</li>
+        <li><strong>Condition :</strong> {{ form_data.accepteConditions ? 'Oui' : 'Non'}}</li>
+        <li><strong>Autorisation :</strong>{{ form_data.autorisationContact ? 'Oui' : 'Non'}}</li>
     </ul>
 
     <div class="confirmation-footer">

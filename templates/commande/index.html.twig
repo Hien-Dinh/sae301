@@ -5,36 +5,37 @@
 {% block main %}
     <h1>Demander une intervention de plomberie</h1>
     <p>Remplissez ce formulaire pour choisir un créneau d’intervention. Une confirmation vous sera envoyée par e-mail.</p>
+    <p>Les champs avec * sont obligatoires.</p>
 
     {{ form_start(form) }}
 
     <h3>Vos informations</h3>
     <div class="form-group">
-        {{ form_row(form.first_name) }}
-        {{ form_row(form.last_name) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.phone) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.nom) }}
+       {{ form_row(form.email) }}
+        {{ form_row(form.telephone) }}
     </div>
 
     <h3>Intervention souhaitée</h3>
     <div class="form-group">
-        {{ form_row(form.service_type) }}
-        {{ form_row(form.address) }}
-        {{ form_row(form.date) }}
-        {{ form_row(form.time_slot) }}
+        {{ form_row(form.typeService) }}
+        {{ form_row(form.adresse) }}
+        {{ form_row(form.dateSouhaitee) }}
+        {{ form_row(form.creneauHoraire) }}
     </div>
 
     <h3>Détails complémentaires</h3>
     <div class="form-group">
         {{ form_row(form.message) }}
         {{ form_row(form.photo) }}
-        {{ form_row(form.emergency) }}
+        {{ form_row(form.urgence) }}
     </div>
 
     <h3>Validation</h3>
     <div class="form-group">
-        {{ form_row(form.terms) }}
-        {{ form_row(form.contact_permission) }}
+        {{ form_row(form.accepteConditions) }}
+        {{ form_row(form.autorisationContact) }}
     </div>
 
     <button type="submit" class="btn btn-primary">Confirmer la demande d’intervention</button>
