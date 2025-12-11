@@ -1,0 +1,122 @@
+@charset "UTF-8";
+@import "_layout.scss";
+
+.hero-image {
+    width: 100%;
+}
+
+.titre-accueil {
+    text-align:center
+}
+
+.services-center {
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px;
+    margin: 20px auto;
+    text-align: center !important;
+}
+
+.services-center img {
+    width: 20%;
+    height: auto;
+    display: block;
+}
+
+.catalogue-section {
+    width: 80%;
+    margin: auto;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.titre-accueil-service {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: $color-text-light;
+}
+
+.catalogue-section {
+    background-color: $color-accueil;
+    width: 100%;
+    padding: 30px 10%;
+}
+
+.catalogue-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    justify-content: center;
+}
+
+.catalogue-cards .card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 25px;
+    background: white;
+    border-radius: 3px;
+    padding: 25px;
+    width: 100%;
+    margin: auto;
+}
+
+.catalogue-cards .card img {
+    width: 40%;
+    height: auto;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+.catalogue-cards .card-body {
+    width: 60%;
+    padding: 0;
+    text-align: left;
+}
+
+.catalogue-cards .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.catalogue-cards .card-text {
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.catalogue-cards .btn-warning {
+    background-color: $btn-reservation;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.catalogue-cards .btn-warning:hover {
+    background-color: $btn-reservation-hover;
+}
+
+.btn_service {
+    background-color: $btn-reservation;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    border: none;
+}
+
+.btn_service:hover {
+    background-color: $btn-reservation-hover;
+}
+
+#map {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid #000;
+}

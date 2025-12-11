@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class BackOfficeController extends AbstractController
 {
-    #[Route('/back', name: 'app_back_office')]
+    #[Route('/backoffice', name: 'app_back_office')]
     public function index(): Response
     {
         // Données simulées pour les réservations

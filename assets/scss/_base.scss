@@ -1,0 +1,71 @@
+@charset "UTF-8";
+@import "_layout.scss";
+
+.navbar {
+    text-align: left !important;
+}
+
+.navbar-brand img {
+    width: 15%;
+    height: auto;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.navbar-brand {
+    padding: 0 !important;
+    margin-right: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-link {
+    color: $color-text-light !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.navbar .nav-link:hover {
+    color: $color-text-dark !important;
+    transition: 0.2s;
+}
+
+.navbar-nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.navbar-nav .nav-item {
+    padding: 0 100px;
+}
+
+.footer {
+    font-family: $font-base;
+    font-weight: bold;
+    color: $color-text-light;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+body.app_accueil .navbar,
+body.app_accueil .footer {
+    background: $color-accueil !important;
+}
+
+body.app_commande .navbar,
+body.app_commande .footer {
+    background: $color-reservation !important;
+}
+
+body.app_actualite .navbar,
+body.app_actualite .footer {
+    background: $color-actu !important;
+}
+
+body.app_back_office .navbar,
+body.app_back_office .footer {
+    background: $color-admin !important;
+}

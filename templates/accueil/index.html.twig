@@ -1,20 +1,71 @@
+
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello AccueilController!{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block main %}
+    <img class="hero-image" src="{{ asset('images/faux_hero.jpg') }}" alt="Product">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/var/www/sae301/src/Controller/AccueilController.php</code></li>
-        <li>Your template at <code>/var/www/sae301/templates/accueil/index.html.twig</code></li>
-    </ul>
-</div>
+    <h1 class="titre-accueil">Artisans et leurs services</h1>
+    <div class="services-center">
+        <img src="{{ asset('images/test.png') }}" alt="Product">
+        <img src="{{ asset('images/test.png') }}" alt="Product">
+        <img src="{{ asset('images/test.png') }}" alt="Product">
+        <img src="{{ asset('images/test.png') }}" alt="Product">
+    </div><br>
+
+    <div class="catalogue-section">
+        <h1 class="titre-accueil-service">Catalogue des services</h1>
+        <div class="catalogue-cards">
+            <div class="card">
+                <img src="{{ asset('images/depannage.png') }}">
+                <div class="card-body">
+                    <h5 class="card-title">Dépannage rapide</h5>
+                    <p class="card-text">Intervention immédiate pour fuites, pannes et canalisations bouchées. Service fiable et réactif.</p>
+                    <button class="btn btn-warning">Réserver ce service</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{ asset('images/installation.png') }}">
+                <div class="card-body">
+                    <h5 class="card-title">Installation salle de bain</h5>
+                    <p class="card-text">Pose de robinetterie, douche, WC, chauffe-eau. Rénovation propre et sur mesure.</p>
+                    <button class="btn btn-warning">Réserver ce service</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{ asset('images/entretien.png') }}">
+                <div class="card-body">
+                    <h5 class="card-title">Entretien plomberie</h5>
+                    <p class="card-text">Détartrage, nettoyage des canalisations, contrôle du chauffe-eau. Prévention des pannes.</p>
+                    <button class="btn btn-warning">Réserver ce service</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{ asset('images/mise_norme.png') }}">
+                <div class="card-body">
+                    <h5 class="card-title">Mise aux normes</h5>
+                    <p class="card-text">Modernisation et sécurisation de vos installations selon les normes en vigueur.</p>
+                    <button class="btn btn-warning">Réserver ce service</button>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn_service">Découvrir plus de services</button>
+    </div><br>
+
+
+    <h1 class="titre-accueil">Avantages</h1><br>
+
+    <h1 class="titre-accueil">Zone d'intervention</h1>
+    <div id="map" style="width:60%; height:600px; margin:20px auto 0 auto; border-radius:15px; overflow:hidden;"></div>
+    <script src="{{ asset('js/map.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA85qi7jHSJvC98Ffei_7pKEYZmsWvaZag&callback=initMap" async defer></script>
+
+
+
+    <h1 class="titre-accueil">Avis clients</h1><br>
+
+
 {% endblock %}
