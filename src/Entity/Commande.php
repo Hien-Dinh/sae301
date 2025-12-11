@@ -61,6 +61,12 @@ class Commande
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTime $dateCreation = null;
 
+    #[ORM\Column(length: 50)]
+    private ?string $statut = 'En attente';
+
+    #[ORM\ManyToOne(inversedBy: 'commandes')]
+    private ?Creneau $creneau = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -217,6 +223,29 @@ class Commande
     public function setDateCreation(\DateTime $dateCreation): static
     {
         $this->dateCreation = $dateCreation;
+        return $this;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): static
+    {
+        $this->statut = $statut;
+        return $this;
+    }
+
+    public function getCreneau(): ?Creneau
+    {
+        return $this->creneau;
+    }
+
+    public function setCreneau(?Creneau $creneau): static
+    {
+        $this->creneau = $creneau;
+
         return $this;
     }
 }

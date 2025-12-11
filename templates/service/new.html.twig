@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un Service{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouveau service</h1>
+
+    {{ include('service/_form.html.twig', {'button_label': 'Créer'}) }}
+
+    <a href="{{ path('app_service_index') }}" class="btn btn-secondary mt-3">⬅ Retour à la liste</a>
+{% endblock %}

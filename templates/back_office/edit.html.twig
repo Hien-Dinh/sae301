@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la commande{% endblock %}
+
+{% block body %}
+    <h1>Modifier la commande #{{ commande.id }}</h1>
+
+    {{ form_start(form) }}
+
+    <div class="form-section">
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.telephone) }}
+    </div>
+
+    <div class="form-section">
+        {{ form_row(form.typeService) }}
+        {{ form_row(form.adresse) }}
+        {{ form_row(form.dateSouhaitee) }}
+        {{ form_row(form.creneauHoraire) }}
+    </div>
+
+    <div class="form-section">
+        {{ form_row(form.message) }}
+        {{ form_row(form.urgence) }}
+        {{ form_row(form.accepteConditions) }}
+        {{ form_row(form.autorisationContact) }}
+    </div>
+
+    <button class="btn btn-warning">Enregistrer les modifications</button>
+
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_backoffice_show', {'id': commande.id}) }}" class="btn btn-secondary mt-3">Annuler</a>
+{% endblock %}

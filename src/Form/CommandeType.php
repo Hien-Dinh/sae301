@@ -18,33 +18,42 @@ class CommandeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $services = $options['services'] ?? [];
+        $creneauxParService = $options['creneaux_par_service'] ?? [];
+        $defaultServiceName = $options['default_service'] ?? null;
+
+        $serviceChoices = [];
+        foreach ($services as $service) {
+            $serviceChoices[$service->getNom()] = $service->getNom();
+        }
+
+        $creneauChoices = [];
+        if ($defaultServiceName && isset($creneauxParService[$defaultServiceName])) {
+            foreach ($creneauxParService[$defaultServiceName] as $libelle) {
+                $creneauChoices[$libelle] = $libelle;
+            }
+        }
+
         $builder
             ->add('prenom', TextType::class, ['label' => '* Prénom'])
             ->add('nom', TextType::class, ['label' => '* Nom'])
             ->add('email', EmailType::class, ['label' => '* Adresse e-mail'])
-            ->add('telephone', TextType::class, ['label' => 'Téléphone'])
+            ->add('telephone', TextType::class, ['label' => '* Téléphone'])
 
             ->add('typeService', ChoiceType::class, [
                 'label' => '* Type de service',
-                'choices' => [
-                    'Débouchage' => 'débouchage',
-                    'Fuite d\'eau' => 'fuite',
-                    'Installation lavabo' => 'lavabo',
-                ],
+                'choices' => $serviceChoices,
+                'placeholder' => 'Choisissez un service',
             ])
             ->add('adresse', TextType::class, ['label' => '* Adresse de l’intervention'])
             ->add('dateSouhaitee', DateType::class, [
-                'label' => '* Date souhaitée',
+                'label' => 'Date souhaitée',
                 'widget' => 'single_text'
             ])
             ->add('creneauHoraire', ChoiceType::class, [
                 'label' => '* Créneau horaire',
-                'choices' => [
-                    '08h00 - 10h00' => '08:00-10:00',
-                    '10h00 - 12h00' => '10:00-12:00',
-                    '14h00 - 16h00' => '14:00-16:00',
-                    '16h00 - 18h00' => '16:00-18:00',
-                ],
+                'choices' => $creneauChoices,
+                'placeholder' => $defaultServiceName ? 'Choisissez un créneau' : 'Choisissez d’abord un service',
             ])
 
             ->add('message', TextareaType::class, [
@@ -54,17 +63,17 @@ class CommandeType extends AbstractType
             ->add('photo', FileType::class, [
                 'label' => 'Photo (optionnel)',
                 'required' => false,
-                'mapped' => false, // important !
+                'mapped' => false,
             ])
             ->add('urgence', CheckboxType::class, [
-                'label' => '* Intervention urgente ?',
+                'label' => 'Intervention urgente?',
                 'required' => false,
             ])
             ->add('accepteConditions', CheckboxType::class, [
                 'label' => '* J’accepte les conditions générales',
             ])
             ->add('autorisationContact', CheckboxType::class, [
-                'label' => 'Autorisez-vous le contact? (optionnel)',
+                'label' => 'Autorisez-vous le contact?',
                 'required' => false,
             ]);
     }
@@ -73,6 +82,9 @@ class CommandeType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Commande::class,
+            'services' => [],
+            'creneaux_par_service' => [],
+            'default_service' => null,
         ]);
     }
 }
