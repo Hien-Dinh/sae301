@@ -25,10 +25,19 @@
     font-weight: 700;
 }
 
-.navbar .nav-link:hover {
-    color: $color-text-dark !important;
+.navbar .nav-link {
+    color: $color-text-light !important;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 6px;
     transition: 0.2s;
 }
+
+.navbar .nav-link:hover {
+    background-color: $color-text-light;
+}
+
 
 .navbar-nav {
     position: absolute;
@@ -68,4 +77,20 @@ body.app_actualite .footer {
 body.app_back_office .navbar,
 body.app_back_office .footer {
     background: $color-admin !important;
+}
+
+body.app_accueil .navbar .nav-link:hover {
+    color: $color-accueil !important;
+}
+
+body.app_commande .navbar .nav-link:hover {
+    color: $color-reservation !important;
+}
+
+body.app_actualite .navbar .nav-link:hover {
+    color: $color-actu !important;
+}
+
+body.app_back_office .navbar .nav-link:hover {
+    color: $color-admin !important;
 }
