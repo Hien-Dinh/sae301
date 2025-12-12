@@ -4,7 +4,7 @@
 
 {% block main %}
 <div class="commande">
-    <h1>Demander une intervention de plomberie</h1>
+<h1>Demander une intervention de plomberie</h1>
     <p>Remplissez ce formulaire pour choisir un créneau d’intervention. Une confirmation vous sera envoyée par e-mail.</p>
     <p>Les champs avec * sont obligatoires.</p>
 
@@ -14,7 +14,7 @@
     <div class="form-group">
         {{ form_row(form.prenom) }}
         {{ form_row(form.nom) }}
-       {{ form_row(form.email) }}
+        {{ form_row(form.email) }}
         {{ form_row(form.telephone) }}
     </div>
 
@@ -27,20 +27,50 @@
     </div>
 
     <h3>Détails complémentaires</h3>
-    <div class="details-complementaires">
+    <div class="form-group">
         {{ form_row(form.message) }}
         {{ form_row(form.photo) }}
         {{ form_row(form.urgence) }}
     </div>
 
     <h3>Validation</h3>
-    <div class="validation-section">
+    <div class="form-group">
         {{ form_row(form.accepteConditions) }}
         {{ form_row(form.autorisationContact) }}
     </div>
+</div>
 
-    <button type="submit" class="button">Confirmer la demande d’intervention</button>
+    <button type="submit" class="btn btn-primary">Confirmer la demande d’intervention</button>
 
     {{ form_end(form) }}
-</div>
+
+    <script>
+        const creneauxParService = {{ creneaux_par_service|json_encode|raw }};
+
+        const serviceSelect = document.getElementById('commande_typeService');
+        const creneauSelect = document.getElementById('commande_creneauHoraire');
+
+        if (serviceSelect && creneauSelect) {
+            serviceSelect.addEventListener('change', function () {
+                const selectedService = this.value;
+
+                creneauSelect.innerHTML = '';
+
+                if (creneauxParService[selectedService]) {
+                    creneauxParService[selectedService].forEach(libelle => {
+                        const option = document.createElement('option');
+                        option.value = libelle;
+                        option.textContent = libelle;
+                        creneauSelect.appendChild(option);
+                    });
+                } else {
+                    const option = document.createElement('option');
+                    option.textContent = 'Aucun créneau disponible';
+                    option.disabled = true;
+                    option.selected = true;
+                    creneauSelect.appendChild(option);
+                }
+            });
+        }
+    </script>
 {% endblock %}

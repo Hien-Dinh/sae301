@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un Créneau{% endblock %}
+
+{% block body %}
+    <h1>Créer un créneau</h1>
+
+    {{ include('creneau/_form.html.twig', {'button_label': 'Créer'}) }}
+
+    <a href="{{ path('app_creneau_index') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
+
+{% endblock %}

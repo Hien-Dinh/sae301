@@ -5,7 +5,6 @@
 {% block main %}
     <img class="hero-image" src="{{ asset('images/faux_hero.jpg') }}" alt="Product">
 
-
     <h1 class="titre-accueil">Artisans et leurs services</h1>
     <div class="services-center">
         <img src="{{ asset('images/test.png') }}" alt="Product">
@@ -25,6 +24,7 @@
                     <button class="btn btn-warning">Réserver ce service</button>
                 </div>
             </div>
+
             <div class="card">
                 <img src="{{ asset('images/installation.png') }}">
                 <div class="card-body">
@@ -33,6 +33,7 @@
                     <button class="btn btn-warning">Réserver ce service</button>
                 </div>
             </div>
+
             <div class="card">
                 <img src="{{ asset('images/entretien.png') }}">
                 <div class="card-body">
@@ -41,6 +42,7 @@
                     <button class="btn btn-warning">Réserver ce service</button>
                 </div>
             </div>
+
             <div class="card">
                 <img src="{{ asset('images/mise_norme.png') }}">
                 <div class="card-body">
@@ -50,9 +52,9 @@
                 </div>
             </div>
         </div>
+
         <button type="button" class="btn_service">Découvrir plus de services</button>
     </div><br>
-
 
     <h1 class="titre-accueil">Avantages</h1><br>
 
@@ -61,9 +63,5 @@
     <script src="{{ asset('js/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA85qi7jHSJvC98Ffei_7pKEYZmsWvaZag&callback=initMap" async defer></script>
 
-
-
     <h1 class="titre-accueil">Avis clients</h1><br>
-
-
 {% endblock %}

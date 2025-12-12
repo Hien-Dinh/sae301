@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de la commande{% endblock %}
+
+{% block body %}
+    <h1>Détail de la commande #{{ commande.id }}</h1>
+
+    <ul>
+        <li><strong>Nom :</strong> {{ commande.prenom }} {{ commande.nom }}</li>
+        <li><strong>Email :</strong> {{ commande.email }}</li>
+        <li><strong>Téléphone :</strong> {{ commande.telephone }}</li>
+
+        <li><strong>Service demandé :</strong> {{ commande.typeService }}</li>
+        <li><strong>Adresse de l’intervention :</strong> {{ commande.adresse }}</li>
+
+        <li><strong>Date souhaitée :</strong> {{ commande.dateSouhaitee|date('d/m/Y') }}</li>
+        <li><strong>Créneau horaire :</strong> {{ commande.creneauHoraire }}</li>
+
+        <li><strong>Urgence :</strong> {{ commande.urgence ? 'Oui' : 'Non' }}</li>
+
+        <li><strong>Message :</strong> {{ commande.message }}</li>
+
+        {% if commande.photo %}
+            <li>
+                <strong>Photo :</strong><br>
+                <img src="/uploads/photos/{{ commande.photo }}" width="300">
+            </li>
+        {% endif %}
+    </ul>
+
+    <a href="{{ path('app_backoffice') }}">Retour au back-office</a>
+{% endblock %}

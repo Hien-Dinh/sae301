@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Services{% endblock %}
+
+{% block body %}
+    <h1>Services disponibles</h1>
+
+    <a href="{{ path('app_service_new') }}" class="btn btn-primary">Ajouter un service</a>
+
+    <table class="table mt-4">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Slug</th>
+            <th>Durée (min)</th>
+            <th>Actif</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for service in services %}
+            <tr>
+                <td>{{ service.nom }}</td>
+                <td>{{ service.slug }}</td>
+                <td>{{ service.duree ?? '—' }}</td>
+                <td>{{ service.actif ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('app_service_show', {'id': service.id}) }}">Voir</a>
+                    <a class="btn btn-warning" href="{{ path('app_service_edit', {'id': service.id}) }}">Modifier</a>
+                    {{ include('service/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr><td colspan="5">Aucun service trouvé.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_backoffice') }}" class="btn btn-secondary">Retour Back-Office</a>
+{% endblock %}

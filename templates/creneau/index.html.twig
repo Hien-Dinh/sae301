@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Créneaux Horaires{% endblock %}
+
+{% block body %}
+    <h1>Créneaux horaires</h1>
+
+    <a href="{{ path('app_creneau_new') }}" class="btn btn-primary mb-3">Ajouter un créneau</a>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Libellé</th>
+            <th>Service</th>
+            <th>Ordre</th>
+            <th>Actif</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for creneau in creneaus %}
+            <tr>
+                <td>{{ creneau.libelle }}</td>
+                <td>{{ creneau.service.nom }}</td>
+                <td>{{ creneau.ordre ?? '—' }}</td>
+                <td>{{ creneau.actif ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a href="{{ path('app_creneau_show', {'id': creneau.id}) }}" class="btn btn-info">Voir</a>
+                    <a href="{{ path('app_creneau_edit', {'id': creneau.id}) }}" class="btn btn-warning">Modifier</a>
+                    {{ include('creneau/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun créneau enregistré.</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_backoffice') }}" class="btn btn-secondary">Retour Back-Office</a>
+
+{% endblock %}
