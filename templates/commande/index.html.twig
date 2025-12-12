@@ -3,7 +3,8 @@
 {% block title %}Demander une intervention de plomberie{% endblock %}
 
 {% block main %}
-    <h1>Demander une intervention de plomberie</h1>
+<div class="commande">
+<h1>Demander une intervention de plomberie</h1>
     <p>Remplissez ce formulaire pour choisir un créneau d’intervention. Une confirmation vous sera envoyée par e-mail.</p>
     <p>Les champs avec * sont obligatoires.</p>
 
@@ -37,6 +38,7 @@
         {{ form_row(form.accepteConditions) }}
         {{ form_row(form.autorisationContact) }}
     </div>
+</div>
 
     <button type="submit" class="btn btn-primary">Confirmer la demande d’intervention</button>
 

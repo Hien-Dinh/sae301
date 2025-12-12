@@ -1,0 +1,141 @@
+@charset "UTF-8";
+@import "_layout.scss";
+
+@import 'layout';
+
+.commande {
+    max-width: 900px;
+    margin: 90px auto;
+    background-color: $color-reservation;
+    padding: 40px 80px;
+    border-radius: 8px;
+}
+
+.commande h1 {
+    color: $color-text-light;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.commande p {
+    color: $color-text-light;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.commande h3 {
+    color: $color-text-light;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.commande .form-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 25px;
+    margin-bottom: 30px;
+}
+
+.commande label {
+    display: block;
+    color: $color-text-light;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.commande input,
+.commande select,
+.commande textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: $color-text-light;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.commande textarea {
+    min-height: 90px;
+    resize: vertical;
+    font-family: $font-base;
+}
+
+.commande select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 35px;
+}
+
+.commande input[type="file"] {
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+.commande input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.commande .details-complementaires > div {
+    margin-bottom: 20px;
+}
+
+.commande .details-complementaires > div:last-child {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.commande .details-complementaires > div:last-child label {
+    margin: 0 10px 0 0;
+}
+
+.commande .details-complementaires > div:last-child input[type="checkbox"] {
+    margin: 0;
+}
+
+.commande .validation-section > div {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.commande .validation-section input[type="checkbox"] {
+    margin: 2px 10px 0 0;
+    flex-shrink: 0;
+}
+
+.commande .validation-section label {
+    margin: 0;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.commande button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 45px;
+    background-color: $btn-reservation;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.commande button:hover {
+    background-color: $btn-reservation-hover;
+}
