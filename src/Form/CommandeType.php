@@ -35,17 +35,42 @@ class CommandeType extends AbstractType
         }
 
         $builder
-            ->add('prenom', TextType::class, ['label' => '* Prénom'])
-            ->add('nom', TextType::class, ['label' => '* Nom'])
-            ->add('email', EmailType::class, ['label' => '* Adresse e-mail'])
-            ->add('telephone', TextType::class, ['label' => '* Téléphone'])
+            ->add('prenom', TextType::class, [
+                'label' => '* Prénom',
+                'attr' => [
+                    'placeholder' => 'Ex : Jean',
+                ],
+            ])
+
+            ->add('nom', TextType::class, ['label' => '* Nom',
+                'attr' => [
+                    'placeholder' => 'Ex : Dupont',
+                ],
+            ])
+
+            ->add('email', EmailType::class, ['label' => '* Adresse e-mail',
+                'attr' => [
+                    'placeholder' => 'Ex : exemple@email.com'
+                ],
+            ])
+
+            ->add('telephone', TextType::class, ['label' => '* Téléphone',
+                'attr' => [
+                    'placeholder' => 'Ex : 00 00 00 00 00'
+                ],
+            ])
 
             ->add('typeService', ChoiceType::class, [
                 'label' => '* Type de service',
                 'choices' => $serviceChoices,
                 'placeholder' => 'Choisissez un service',
             ])
-            ->add('adresse', TextType::class, ['label' => '* Adresse de l’intervention'])
+            ->add('adresse', TextType::class, ['label' => '* Adresse de l’intervention',
+                'attr' => [
+                    'placeholder' => 'Ex : 9 Rue Quebec, 10430 Rosières-près-Troyes'
+                ],
+            ])
+
             ->add('dateSouhaitee', DateType::class, [
                 'label' => 'Date souhaitée',
                 'widget' => 'single_text'
