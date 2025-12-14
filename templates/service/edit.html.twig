@@ -2,7 +2,7 @@
 
 {% block title %}Modifier le Service{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>Modifier le service : {{ service.nom }}</h1>
 
     {{ include('service/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
