@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}HYBROSTECH{% endblock %}
 
 {% block main %}
     <img class="hero-image" src="{{ asset('images/faux_hero.jpg') }}" alt="Product">
@@ -14,7 +14,7 @@
     </div><br>
 
     <div class="catalogue-section">
-        <h1 class="titre-accueil-service">Catalogue des services</h1>
+        <h1 class="titre-accueil-blanc">Catalogue des services</h1>
         <div class="catalogue-cards">
             <div class="card">
                 <img src="{{ asset('images/depannage.png') }}">
@@ -57,11 +57,19 @@
     </div><br>
 
     <h1 class="titre-accueil">Avantages</h1><br>
+    <div class="avantages-section">
+        <div class="avantages-images">
+            <img src="{{ asset('images/logo_intervention.png') }}" alt="Intervention">
+            <img src="{{ asset('images/logo_devis.png') }}" alt="Devis">
+            <img src="{{ asset('images/logo_artisan.png') }}" alt="Artisan">
+        </div>
+    </div><br>
 
-    <h1 class="titre-accueil">Zone d'intervention</h1>
+<div class="carte-section">
+    <h1 class="titre-accueil-blanc">Zone d'intervention</h1>
     <div id="map" style="width:60%; height:600px; margin:20px auto 0 auto; border-radius:15px; overflow:hidden;"></div>
     <script src="{{ asset('js/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA85qi7jHSJvC98Ffei_7pKEYZmsWvaZag&callback=initMap" async defer></script>
-
+</div>
     <h1 class="titre-accueil">Avis clients</h1><br>
 {% endblock %}

@@ -13,20 +13,14 @@
 }
 
 .navbar-brand {
-    padding: 0 !important;
-    margin-right: 0 !important;
+    padding: 0 ;
+    margin-right: 0 ;
     display: flex;
     align-items: center;
 }
 
 .navbar .nav-link {
-    color: $color-text-light !important;
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.navbar .nav-link {
-    color: $color-text-light !important;
+    color: $color-text-light;
     font-size: 18px;
     font-weight: 700;
     padding: 6px 14px;
@@ -74,10 +68,11 @@ body.app_actualite .footer {
     background: $color-actu !important;
 }
 
-body.app_back_office .navbar,
-body.app_back_office .footer {
+body.app_backoffice .navbar,
+body.app_backoffice .footer {
     background: $color-admin !important;
 }
+
 
 body.app_accueil .navbar .nav-link:hover {
     color: $color-accueil !important;
@@ -91,6 +86,7 @@ body.app_actualite .navbar .nav-link:hover {
     color: $color-actu !important;
 }
 
-body.app_back_office .navbar .nav-link:hover {
+
+body.app_backoffice .navbar .nav-link:hover {
     color: $color-admin !important;
 }
