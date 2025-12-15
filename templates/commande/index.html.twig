@@ -19,9 +19,9 @@
     </div>
 
     <h3>Intervention souhaitée</h3>
-    <div class="form-group">
+    <div class="form-group intervention-group">
         {{ form_row(form.typeService) }}
-        {{ form_row(form.adresse) }}
+        {{ form_row(form.adresse, {'row_attr': {'class': 'adresse-full'}}) }}
         {{ form_row(form.dateSouhaitee) }}
         {{ form_row(form.creneauHoraire) }}
     </div>
@@ -38,9 +38,8 @@
         {{ form_row(form.accepteConditions) }}
         {{ form_row(form.autorisationContact) }}
     </div>
-</div>
 
-    <button type="submit" class="btn btn-primary">Confirmer la demande d’intervention</button>
+    <button type="submit" class="commande-button">Confirmer la demande d’intervention</button>
 
     {{ form_end(form) }}
 
@@ -73,4 +72,5 @@
             });
         }
     </script>
+</div>
 {% endblock %}

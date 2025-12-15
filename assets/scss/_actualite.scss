@@ -3,4 +3,47 @@
 
 .hero-image {
     width: 100%;
+    margin-bottom: 2rem;
+}
+
+.h1-actu {
+    text-align: center;
+    color: $color-actu;
+}
+
+.row {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1rem;
+}
+
+.card {
+    background-color: $color-actu;
+    border-radius: 15px;
+    border: none;
+
+    img {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 1rem;
+        border-radius: 10px;
+    }
+
+    .card-body {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 0.95rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
 }
