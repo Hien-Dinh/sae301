@@ -72,7 +72,7 @@ class CommandeType extends AbstractType
             ])
 
             ->add('dateSouhaitee', DateType::class, [
-                'label' => 'Date souhaitée',
+                'label' => '* Date souhaitée',
                 'widget' => 'single_text'
             ])
             ->add('creneauHoraire', ChoiceType::class, [
