@@ -32,7 +32,6 @@
     background-color: $color-text-light;
 }
 
-
 .navbar-nav {
     position: absolute;
     left: 50%;
@@ -73,7 +72,6 @@ body.app_backoffice .footer {
     background: $color-admin !important;
 }
 
-
 body.app_accueil .navbar .nav-link:hover {
     color: $color-accueil !important;
 }
@@ -86,7 +84,66 @@ body.app_actualite .navbar .nav-link:hover {
     color: $color-actu !important;
 }
 
-
 body.app_backoffice .navbar .nav-link:hover {
     color: $color-admin !important;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.footer-section a:hover {
+    background-color: white;
+}
+
+body.app_accueil .footer a:hover {
+    color: $color-accueil !important;
+}
+
+body.app_commande .footer a:hover {
+    color: $color-reservation !important;
+}
+
+body.app_actualite .footer a:hover {
+    color: $color-actu !important;
+}
+
+body.app_backoffice .footer a:hover {
+    color: $color-admin !important;
+}
+
+.footer-credits {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid white;
+    margin-top: 15px;
 }
