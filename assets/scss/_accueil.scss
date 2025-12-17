@@ -25,6 +25,11 @@
     width: 20%;
     height: auto;
     display: block;
+    transition: 0.2s;
+}
+
+.services-center img:hover {
+    scale: 1.1;
 }
 
 .catalogue-section {
@@ -144,3 +149,91 @@
     display: block;
 }
 
+.carousel-avis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px;
+}
+
+.avis-window {
+    width: 620px;
+    overflow: hidden;
+}
+
+.avis-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.4s ease;
+}
+
+
+.avis {
+    min-width: 295px;
+    padding: 25px;
+    border: 2px solid;
+    border-radius: 15px;
+    text-align: left;
+    background: white;
+}
+
+.avis:nth-child(odd) {
+    border-color: red;
+    color: red;
+}
+
+.avis:nth-child(even) {
+    border-color: purple;
+    color: purple;
+}
+
+.carousel-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #bbb;
+}
+
+.avis-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin: 80px 0;
+}
+
+.tuyau {
+    position: relative;
+    width: 180px;
+    height: 120px;
+}
+
+.tuyau-horizontal {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    height: 60px;
+    background: #45c144;
+}
+
+
+.tuyau-vertical {
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 120px;
+    background: #45c144;
+}
+
+
+.tuyau-gauche .tuyau-vertical {
+    right: 0;
+}
+
+
+.tuyau-droit .tuyau-vertical {
+    left: 0;
+}

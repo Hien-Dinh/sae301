@@ -69,6 +69,54 @@ body.app_actualite .navbar .nav-link:hover {
 body.app_backoffice .navbar .nav-link:hover {
   color: #993AB8 !important; }
 
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px; }
+
+.footer-section {
+  width: 30%; }
+
+.footer-section h3 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 15px; }
+
+.footer-section ul {
+  list-style: none;
+  padding: 0; }
+
+.footer-section li {
+  margin-bottom: 8px; }
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.2s; }
+
+.footer-section a:hover {
+  background-color: white; }
+
+body.app_accueil .footer a:hover {
+  color: #e62e16 !important; }
+
+body.app_commande .footer a:hover {
+  color: #369836 !important; }
+
+body.app_actualite .footer a:hover {
+  color: #FCC922 !important; }
+
+body.app_backoffice .footer a:hover {
+  color: #993AB8 !important; }
+
+.footer-credits {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid white;
+  margin-top: 15px; }
+
 .hero-image {
   width: 100%;
   margin-bottom: 2rem; }
@@ -89,7 +137,11 @@ body.app_backoffice .navbar .nav-link:hover {
 .services-center img {
   width: 20%;
   height: auto;
-  display: block; }
+  display: block;
+  transition: 0.2s; }
+
+.services-center img:hover {
+  scale: 1.1; }
 
 .catalogue-section {
   width: 80%;
@@ -190,6 +242,78 @@ body.app_backoffice .navbar .nav-link:hover {
   width: 250px;
   height: auto;
   display: block; }
+
+.carousel-avis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px; }
+
+.avis-window {
+  width: 620px;
+  overflow: hidden; }
+
+.avis-track {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.4s ease; }
+
+.avis {
+  min-width: 295px;
+  padding: 25px;
+  border: 2px solid;
+  border-radius: 15px;
+  text-align: left;
+  background: white; }
+
+.avis:nth-child(odd) {
+  border-color: red;
+  color: red; }
+
+.avis:nth-child(even) {
+  border-color: purple;
+  color: purple; }
+
+.carousel-btn {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #bbb; }
+
+.avis-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin: 80px 0; }
+
+.tuyau {
+  position: relative;
+  width: 180px;
+  height: 120px; }
+
+.tuyau-horizontal {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 60px;
+  background: #45c144; }
+
+.tuyau-vertical {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 120px;
+  background: #45c144; }
+
+.tuyau-gauche .tuyau-vertical {
+  right: 0; }
+
+.tuyau-droit .tuyau-vertical {
+  left: 0; }
 
 .commande {
   max-width: 900px;

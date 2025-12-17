@@ -3,14 +3,14 @@
 {% block title %}HYBROSTECH{% endblock %}
 
 {% block main %}
-    <img class="hero-image" src="{{ asset('images/faux_hero.jpg') }}" alt="Product">
+    <img class="hero-image" src="{{ asset('images/hero.png') }}" alt="hero">
 
     <h1 class="titre-accueil">Artisans et leurs services</h1>
     <div class="services-center">
-        <img src="{{ asset('images/test.png') }}" alt="Product">
-        <img src="{{ asset('images/test.png') }}" alt="Product">
-        <img src="{{ asset('images/test.png') }}" alt="Product">
-        <img src="{{ asset('images/test.png') }}" alt="Product">
+        <img src="{{ asset('images/hien.png') }}" alt="Product">
+        <img src="{{ asset('images/eva.png') }}" alt="Product">
+        <img src="{{ asset('images/manon.png') }}" alt="Product">
+        <img src="{{ asset('images/camille.png') }}" alt="Product">
     </div><br>
 
     <div class="catalogue-section">
@@ -71,5 +71,9 @@
     <script src="{{ asset('js/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA85qi7jHSJvC98Ffei_7pKEYZmsWvaZag&callback=initMap" async defer></script>
 </div>
+
     <h1 class="titre-accueil">Avis clients</h1><br>
+    {% include 'composant/_carousel_avis.html.twig' with { avis: avis } %}
+    <script src="{{ asset('js/carousel.js') }}"></script>
+
 {% endblock %}

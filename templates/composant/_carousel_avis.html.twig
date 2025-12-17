@@ -1,0 +1,30 @@
+<section class="avis-section">
+
+    <div class="tuyau tuyau-gauche">
+        <div class="tuyau-horizontal"></div>
+        <div class="tuyau-vertical"></div>
+    </div>
+
+    <div class="carousel-avis">
+        <button class="carousel-btn prev">&#10094;</button>
+
+        <div class="avis-window">
+            <div class="avis-track">
+                {% for a in avis %}
+                    <div class="avis">
+                        <h3>{{ a.auteur }}</h3>
+                        <p>{{ a.texte }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <button class="carousel-btn next">&#10095;</button>
+    </div>
+
+    <div class="tuyau tuyau-droit">
+        <div class="tuyau-horizontal"></div>
+        <div class="tuyau-vertical"></div>
+    </div>
+
+</section>
