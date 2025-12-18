@@ -292,7 +292,8 @@ body.app_backoffice .footer a:hover {
 .tuyau {
   position: relative;
   width: 180px;
-  height: 120px; }
+  height: 120px;
+  transform: scale(1.8); }
 
 .tuyau-horizontal {
   position: absolute;
@@ -307,7 +308,7 @@ body.app_backoffice .footer a:hover {
   top: 0;
   width: 60px;
   height: 120px;
-  background: #45c144; }
+  background: red; }
 
 .tuyau-gauche .tuyau-vertical {
   right: 0; }
