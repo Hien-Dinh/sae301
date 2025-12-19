@@ -1,3 +1,6 @@
+body {
+  max-width: 1080px; }
+
 .navbar {
   text-align: left !important; }
 
@@ -31,7 +34,7 @@
   text-align: center; }
 
 .navbar-nav .nav-item {
-  padding: 0 100px; }
+  padding: 0 15px; }
 
 .footer {
   font-family: sans-serif;
@@ -43,7 +46,7 @@
 
 body.app_accueil .navbar,
 body.app_accueil .footer {
-  background: #e62e16 !important; }
+  background: #E33E3E !important; }
 
 body.app_commande .navbar,
 body.app_commande .footer {
@@ -58,7 +61,7 @@ body.app_backoffice .footer {
   background: #993AB8 !important; }
 
 body.app_accueil .navbar .nav-link:hover {
-  color: #e62e16 !important; }
+  color: #E33E3E !important; }
 
 body.app_commande .navbar .nav-link:hover {
   color: #369836 !important; }
@@ -100,7 +103,7 @@ body.app_backoffice .navbar .nav-link:hover {
   background-color: white; }
 
 body.app_accueil .footer a:hover {
-  color: #e62e16 !important; }
+  color: #E33E3E !important; }
 
 body.app_commande .footer a:hover {
   color: #369836 !important; }
@@ -117,13 +120,18 @@ body.app_backoffice .footer a:hover {
   border-top: 1px solid white;
   margin-top: 15px; }
 
+body {
+  max-width: 1920px;
+  overflow-x: hidden; }
+
 .hero-image {
   width: 100%;
   margin-bottom: 2rem; }
 
 .titre-accueil {
   text-align: center;
-  color: #e62e16; }
+  color: #E33E3E;
+  padding-top: 30px; }
 
 .services-center {
   width: 100%;
@@ -154,15 +162,16 @@ body.app_backoffice .footer a:hover {
   text-align: center; }
 
 .catalogue-section {
-  background-color: #e62e16;
+  background-color: #E33E3E;
   width: 100%;
   padding: 30px 10%; }
 
 .catalogue-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 50px;
-  justify-content: center; }
+  gap: clamp(20px, 3vw, 50px);
+  justify-content: center;
+  padding: 60px 0; }
 
 .catalogue-cards .card {
   display: flex;
@@ -177,13 +186,16 @@ body.app_backoffice .footer a:hover {
   margin: auto; }
 
 .catalogue-cards .card img {
-  width: 40%;
+  width: clamp(110px, 12vw, 160px);
+  flex: 0 0 auto;
   height: auto;
   border-radius: 3px;
   object-fit: cover; }
 
 .catalogue-cards .card-body {
-  width: 60%;
+  flex: 1;
+  min-width: 0;
+  height: 213px;
   padding: 0;
   text-align: left; }
 
@@ -219,7 +231,7 @@ body.app_backoffice .footer a:hover {
   background-color: #d1a000; }
 
 .carte-section {
-  background-color: #e62e16;
+  background-color: #E33E3E;
   width: 100%;
   padding-top: 10px;
   padding-bottom: 60px; }
@@ -248,11 +260,13 @@ body.app_backoffice .footer a:hover {
   align-items: center;
   justify-content: center;
   gap: 30px;
-  padding: 60px; }
+  padding: 30px 60px; }
 
 .avis-window {
   width: 620px;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative;
+  z-index: 2; }
 
 .avis-track {
   display: flex;
@@ -283,30 +297,35 @@ body.app_backoffice .footer a:hover {
   color: #bbb; }
 
 .avis-section {
+  width: 100%;
+  max-width: 1920px;
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   gap: 60px;
-  margin: 80px 0; }
+  margin: 20px auto 60px;
+  box-sizing: border-box; }
 
 .tuyau {
   position: relative;
-  width: 180px;
-  height: 120px; }
+  width: 320px;
+  height: 220px;
+  z-index: -1; }
 
 .tuyau-horizontal {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 180px;
-  height: 60px;
+  width: 300px;
+  height: 120px;
   background: #45c144; }
 
 .tuyau-vertical {
   position: absolute;
   top: 0;
-  width: 60px;
-  height: 120px;
+  width: 120px;
+  height: 220px;
   background: #45c144; }
 
 .tuyau-gauche .tuyau-vertical {
@@ -315,6 +334,34 @@ body.app_backoffice .footer a:hover {
 .tuyau-droit .tuyau-vertical {
   left: 0; }
 
+@media (max-width: 1500px) {
+  .avis-window {
+    width: 300px;
+    /* une seule carte visible */ }
+
+  .avis {
+    min-width: 300px; }
+
+  .avis-track {
+    gap: 0; }
+
+  .carousel-avis {
+    gap: 20px; }
+
+  .tuyau {
+    width: 240px;
+    height: 180px; }
+
+  .tuyau-horizontal {
+    width: 220px;
+    height: 90px; }
+
+  .tuyau-vertical {
+    width: 90px;
+    height: 180px; }
+
+  .avis-section {
+    gap: 40px; } }
 .commande {
   max-width: 900px;
   margin: 60px auto;

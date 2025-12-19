@@ -17,43 +17,43 @@
         <h1 class="titre-accueil-blanc">Catalogue des services</h1>
         <div class="catalogue-cards">
             <div class="card">
-                <img src="{{ asset('images/depannage.png') }}">
+                <img src="{{ asset('images/depannage.svg') }}">
                 <div class="card-body">
                     <h5 class="card-title">Dépannage rapide</h5>
                     <p class="card-text">Intervention immédiate pour fuites, pannes et canalisations bouchées. Service fiable et réactif.</p>
-                    <button class="btn btn-warning">Réserver ce service</button>
+                    <button class="btn btn-warning"><a class="nav-link" href="{{ path('app_commande') }}">Réserver ce service</a></button>
                 </div>
             </div>
 
             <div class="card">
-                <img src="{{ asset('images/installation.png') }}">
+                <img src="{{ asset('images/installation.svg') }}">
                 <div class="card-body">
                     <h5 class="card-title">Installation salle de bain</h5>
                     <p class="card-text">Pose de robinetterie, douche, WC, chauffe-eau. Rénovation propre et sur mesure.</p>
-                    <button class="btn btn-warning">Réserver ce service</button>
+                    <button class="btn btn-warning"><a class="nav-link" href="{{ path('app_commande') }}">Réserver ce service</a></button>
                 </div>
             </div>
 
             <div class="card">
-                <img src="{{ asset('images/entretien.png') }}">
+                <img src="{{ asset('images/entretien.svg') }}">
                 <div class="card-body">
                     <h5 class="card-title">Entretien plomberie</h5>
                     <p class="card-text">Détartrage, nettoyage des canalisations, contrôle du chauffe-eau. Prévention des pannes.</p>
-                    <button class="btn btn-warning">Réserver ce service</button>
+                    <button class="btn btn-warning"><a class="nav-link" href="{{ path('app_commande') }}">Réserver ce service</a></button>
                 </div>
             </div>
 
             <div class="card">
-                <img src="{{ asset('images/mise_norme.png') }}">
+                <img src="{{ asset('images/mise_norme.svg') }}">
                 <div class="card-body">
                     <h5 class="card-title">Mise aux normes</h5>
                     <p class="card-text">Modernisation et sécurisation de vos installations selon les normes en vigueur.</p>
-                    <button class="btn btn-warning">Réserver ce service</button>
+                    <button class="btn btn-warning"><a class="nav-link" href="{{ path('app_commande') }}">Réserver ce service</a></button>
                 </div>
             </div>
         </div>
 
-        <button type="button" class="btn_service">Découvrir plus de services</button>
+        <button type="button" class="btn_service"><a class="nav-link" href="{{ path('app_actualite') }}">Découvrir plus de service</a></button>
     </div><br>
 
     <h1 class="titre-accueil">Avantages</h1><br>
@@ -71,8 +71,7 @@
     <script src="{{ asset('js/map.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA85qi7jHSJvC98Ffei_7pKEYZmsWvaZag&callback=initMap" async defer></script>
 </div>
-
-    <h1 class="titre-accueil">Avis clients</h1><br>
+    <br><h1 class="titre-accueil">Avis clients</h1>
     {% include 'composant/_carousel_avis.html.twig' with { avis: avis } %}
     <script src="{{ asset('js/carousel.js') }}"></script>
 
