@@ -1,6 +1,11 @@
 @charset "UTF-8";
 @import "_layout.scss";
 
+body {
+    max-width: 1920px;
+    overflow-x: hidden;
+}
+
 .hero-image {
     width: 100%;
     margin-bottom: 2rem;
@@ -9,6 +14,7 @@
 .titre-accueil {
     text-align:center;
     color: $color-accueil;
+    padding-top: 30px;
 }
 
 .services-center {
@@ -53,8 +59,9 @@
 .catalogue-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+    gap: clamp(20px, 3vw, 50px);
     justify-content: center;
+    padding: 60px 0;
 }
 
 .catalogue-cards .card {
@@ -71,14 +78,17 @@
 }
 
 .catalogue-cards .card img {
-    width: 40%;
+    width: clamp(110px, 12vw, 160px);
+    flex: 0 0 auto;
     height: auto;
     border-radius: 3px;
     object-fit: cover;
 }
 
 .catalogue-cards .card-body {
-    width: 60%;
+    flex: 1;
+    min-width: 0;
+    height: 213px;
     padding: 0;
     text-align: left;
 }
@@ -154,12 +164,14 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
-    padding: 60px;
+    padding: 30px 60px;
 }
 
 .avis-window {
     width: 620px;
     overflow: hidden;
+    position: relative;
+    z-index: 2;
 }
 
 .avis-track {
@@ -197,35 +209,42 @@
 }
 
 .avis-section {
+    width: 100%;
+    max-width: 1920px;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     gap: 60px;
-    margin: 80px 0;
+    margin: 20px auto 60px;
+    box-sizing: border-box;
 }
+
 
 .tuyau {
     position: relative;
-    width: 180px;
-    height: 120px;
+    width: 320px;
+    height: 220px;
+    z-index: -1;
 }
+
 
 .tuyau-horizontal {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 180px;
-    height: 60px;
-    background: #45c144;
+    width: 300px;
+    height: 120px;
+    background: $tuyau-vert;
 }
 
 
 .tuyau-vertical {
     position: absolute;
     top: 0;
-    width: 60px;
-    height: 120px;
-    background: #45c144;
+    width: 120px;
+    height: 220px;
+    background: $tuyau-vert;
 }
 
 
@@ -236,4 +255,40 @@
 
 .tuyau-droit .tuyau-vertical {
     left: 0;
+}
+
+@media (max-width: 1500px) {
+    .avis-window {
+        width: 300px;
+    }
+
+    .avis {
+        min-width: 300px;
+    }
+
+    .avis-track {
+        gap: 0;
+    }
+
+    .carousel-avis {
+        gap: 20px;
+    }
+    .tuyau {
+        width: 240px;
+        height: 180px;
+    }
+
+    .tuyau-horizontal {
+        width: 220px;
+        height: 90px;
+    }
+
+    .tuyau-vertical {
+        width: 90px;
+        height: 180px;
+    }
+
+    .avis-section {
+        gap: 40px;
+    }
 }
