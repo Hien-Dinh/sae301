@@ -336,8 +336,7 @@ body {
 
 @media (max-width: 1500px) {
   .avis-window {
-    width: 300px;
-    /* une seule carte visible */ }
+    width: 300px; }
 
   .avis {
     min-width: 300px; }
@@ -448,10 +447,6 @@ body {
 
 .commande button:hover {
   background-color: #d1a000; }
-
-.hero-image {
-  width: 100%;
-  margin-bottom: 2rem; }
 
 .h1-actu {
   text-align: center;
